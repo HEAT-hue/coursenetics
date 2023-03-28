@@ -1,0 +1,2 @@
+This directory contains all the views for the user dashboard
+Please ensure to add index.ts file to all folders created for clean imports
