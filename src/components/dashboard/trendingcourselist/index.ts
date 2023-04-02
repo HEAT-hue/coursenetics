@@ -1,0 +1,1 @@
+export { TrendingCourseList } from "./trendingCourseList";

@@ -1,0 +1,1 @@
+export { TrendingCourseItem } from "./trendingCourseitem";

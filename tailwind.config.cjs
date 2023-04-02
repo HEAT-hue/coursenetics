@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         pry: "#00007E",
         lgBg: "#F1F0F0",
+        bgLg: "#ebe6e6",
       },
     },
   },
