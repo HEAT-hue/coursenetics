@@ -13,7 +13,7 @@ function TrendingCourseItem({ title, description, imgPreview, rating }: Trending
     return (
         <>
             <div className="w-[300px] h-full rounded shadow overflow-hidden ">
-                <div className="relative w-full h-full bg-[url('../../../../../src/assets/dashboard/robot.jpg')] bg-no-repeat bg-center bg-cover">
+                <div className="relative w-full h-full bg-[url('./assets/dashboard/robot.jpg')] bg-no-repeat bg-center bg-cover">
                     <div className="absolute inset-0 bg-[#00000086] p-6 flex flex-col justify-between">
                         <div className="flex flex-col gap-y-2">
                             <h1 className="text-2xl text-[white] font-bold">Robotics</h1>
