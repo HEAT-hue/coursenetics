@@ -17,7 +17,7 @@ function SignUpForm() {
         <>
             <div>
                 <form>
-                    <div className="w-[350px] mx-auto mt-[5rem] flex flex-col items-center">
+                    <div className="max-w-[350px] w-full px-2 mx-auto mt-[5rem] flex flex-col items-center">
                         <h1 className="text-pry font-bold text-3xl">Create Account</h1>
                         <div className="flex justify-center gap-x-5 mt-3">
                             <div className="p-2 shadow border-[1px] rounded-full text-pry cursor-pointer hover:shadow-md"><FacebookSVG size={16} /></div>
@@ -26,14 +26,14 @@ function SignUpForm() {
                         </div>
 
                         {/* Form fields */}
-                        <div className="mt-10 flex flex-col w-full gap-y-5">
+                        <div className="mt-[4rem] flex flex-col w-full gap-y-5">
                             <div className="flex h-[3rem] w-full relative">
                                 <div className=" absolute left-[5px] h-full max-w-content flex items-center px-[5px] text-pry"><EmailSVG size={20} /></div>
-                                <input className="rounded w-full h-full pl-[3rem] pr-2 text-[black] bg-gray-200 border-2 text-[1rem] outline-none focus:border-pry" type="email" placeholder="Email" ref={emailRef} />
+                                <input className="rounded w-full h-full pl-[2.5rem] pr-2 text-[black] bg-gray-200 border-2 text-[1rem] outline-none focus:border-pry" type="email" placeholder="Email" ref={emailRef} />
                             </div>
                             <div className="flex h-[3rem] w-full relative">
                                 <div className=" absolute left-[5px] h-full max-w-content flex items-center px-[5px] text-pry"><KeySVG size={20} /></div>
-                                <input className="rounded w-full h-full pl-[3rem] text-[black] bg-gray-200 border-2 text-[1rem] outline-none focus:border-pry" type="password" placeholder="Password" ref={passwordRef} />
+                                <input className="rounded w-full h-full pl-[2.5rem] text-[black] bg-gray-200 border-2 text-[1rem] outline-none focus:border-pry" type="password" placeholder="Password" ref={passwordRef} />
                             </div>
                             <div className="flex h-[3rem] w-full relative">
                                 <div className=" absolute left-[5px] h-full max-w-content flex items-center px-[5px] text-pry"><ArrowClockwiseSVG size={20} /></div>

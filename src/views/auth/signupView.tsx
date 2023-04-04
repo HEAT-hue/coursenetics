@@ -1,4 +1,5 @@
 import { SignUpForm } from "../../components/auth";
+import { Logo } from "../../components/auth";
 
 // jshint esversion:6
 export { SignUpForm } from "../../components/auth";
@@ -14,7 +15,12 @@ function SignUpView() {
                 </div>
 
                 {/* Actual Form Element */}
-                <SignUpForm />
+                <div className="relative">
+                    <div className="md:hidden absolute top-[-10%] left-[-10%] rounded-full bg-gray-200 box-content pt-[2.8rem] pl-[2.5rem] pr-4 pb-3 border-[15px] border-[white]">
+                        <Logo />
+                    </div>
+                    <SignUpForm />
+                </div>
             </div>
         </>
     )
