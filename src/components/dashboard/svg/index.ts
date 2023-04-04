@@ -3,3 +3,8 @@ export { BellSVG } from "./bellSVG";
 export { JournalSVG } from "./journalsSVG";
 export { StopwatchSVG } from "./stopwatchSVG";
 export { StarFillSVG } from "./starFillSVG";
+export { CourseSVG } from "./courseSVG";
+export { HomeSVG } from "./homeSVG";
+export { PatchCheckSVG } from "./pathCheckSVG";
+export { PersonSVG } from "./personSVG";
+export { GearFillSVG } from "./gearFill";

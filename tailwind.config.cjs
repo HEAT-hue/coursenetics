@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         pry: "#00007E",
+        pryLg: "#a9a9cc",
         lgBg: "#F1F0F0",
         bgLg: "#ebe6e6",
       },

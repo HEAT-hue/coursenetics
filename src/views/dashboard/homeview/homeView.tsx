@@ -4,7 +4,7 @@ import { SearchBar, BellNotification, CourseList, TrendingCourseList } from "../
 function HomeView() {
     return (
         <>
-            <div className="flex flex-col gap-y-[1.3rem] px-[1.5rem] py-[1.5rem]">
+            <div className="flex flex-col gap-y-[1.3rem] px-[1.5rem]">
                 {/* Header | User info */}
                 <div className="flex justify-between items-start">
                     <div className="flex flex-col gap-y-1 items-start">
