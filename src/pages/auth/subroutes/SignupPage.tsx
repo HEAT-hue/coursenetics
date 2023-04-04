@@ -1,5 +1,5 @@
 // jshint esversion:6
-import { SignUpView } from "../../../views/auth/signupView"
+import { SignUpView } from "../../../views/auth"
 
 function SignUpPage() {
     return (
