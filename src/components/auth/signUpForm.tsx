@@ -10,7 +10,7 @@ function SignUpForm() {
     const confirmPasswordRef = useRef<HTMLInputElement>(null);
 
     function handleSubmit() {
-        prompt("Functionlity coming soon!");
+        alert("Functionlity coming soon!");
     }
 
     return (

@@ -9,7 +9,7 @@ function LoginForm() {
     const passwordRef = useRef<HTMLInputElement>(null);
 
     function handleSubmit() {
-        prompt("Functionlity coming soon!");
+        alert("Functionlity coming soon!");
     }
 
     return (
