@@ -1,5 +1,5 @@
 // jshint esversion:6
-import { HomeView } from "../../../components/views/dashboard";
+import { HomeView } from "../../../views/dashboard";
 
 function HomePage() {
     return (

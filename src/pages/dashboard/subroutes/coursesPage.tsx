@@ -1,5 +1,5 @@
 // jshint esversion:6
-import { CourseView } from "../../../components/views/dashboard";
+import { CourseView } from "../../../views/dashboard";
 
 function CourseListPage() {
     return (

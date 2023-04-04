@@ -1,5 +1,5 @@
 // jshint esversion:6
-import { CertifiateView } from "../../../components/views/dashboard"
+import { CertifiateView } from "../../../views/dashboard"
 
 function CertificatePage() {
     return (

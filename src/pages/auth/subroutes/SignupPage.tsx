@@ -1,10 +1,11 @@
 // jshint esversion:6
+import { SignUpView } from "../../../views/auth/signupView"
 
 function SignUpPage() {
     return (
         <>
-            <div className="h-screen bg-blue-500 flex justify-center items-center">
-                <p className="text-white">This is the sign up page</p>
+            <div className="h-screen w-full">
+                <SignUpView />
             </div>
         </>
     )

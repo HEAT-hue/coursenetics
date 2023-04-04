@@ -1,6 +1,5 @@
 // jshint esversion:6
-import { SearchBar, BellNotification, CourseList, TrendingCourseList } from "../../../dashboard";
-
+import { SearchBar, BellNotification, CourseList, TrendingCourseList } from "../../../components/dashboard";
 
 function HomeView() {
     return (

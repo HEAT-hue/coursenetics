@@ -1,6 +1,6 @@
 // jshint esversion:6
 import { Route, Routes } from "react-router-dom";
-import { DashboardLayout } from "../../components/layout/dashboard";
+import { DashboardLayout } from "../../layout/dashboard";
 import { HomePage, CertificatePage, CourseListPage, UserProfilePage } from "./subroutes";
 
 function DashboardIndexPage() {

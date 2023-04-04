@@ -1,5 +1,5 @@
 // jshint esversion:6
-import { UserProfileView } from "../../../components/views/dashboard"
+import { UserProfileView } from "../../../views/dashboard";
 
 function UserProfilePage() {
     return (
