@@ -4,7 +4,9 @@ import { LoginView } from "../../../views/auth/loginView"
 function LoginPage() {
     return (
         <>
-            <LoginView />
+            <div className="h-screen w-full">
+                <LoginView />
+            </div>
         </>
     )
 }
