@@ -16,7 +16,7 @@ function SignUpView() {
 
                 {/* Actual Form Element */}
                 <div className="relative">
-                    <div className="md:hidden absolute top-[-10%] left-[-10%] rounded-full bg-gray-200 box-content pt-[2.8rem] pl-[2.5rem] pr-4 pb-3 border-[15px] border-[white]">
+                    <div className="md:hidden absolute top-[-4rem] left-[-2.8rem] rounded-full bg-gray-200 box-content pt-[2.8rem] pl-[2.5rem] pr-4 pb-3 border-[15px] border-[white]">
                         <Logo />
                     </div>
                     <SignUpForm />
