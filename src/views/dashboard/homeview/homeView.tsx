@@ -4,7 +4,7 @@ import { SearchBar, BellNotification, CourseList, TrendingCourseList } from "../
 function HomeView() {
     return (
         <>
-            <div className="flex flex-col gap-y-[1.3rem] px-[1.5rem]">
+            <div className="flex flex-col gap-y-[1.3rem] ">
                 {/* Header | User info */}
                 <div className="flex justify-between items-start">
                     <div className="flex flex-col gap-y-1 items-start">
@@ -28,7 +28,7 @@ function HomeView() {
                 {/* Section | Trending Courses */}
                 <div>
                     <h2 className="capitalize text-2xl font-bold text-pry" >Trending Courses</h2>
-                    <div className="overflow-auto my-5">
+                    <div className="overflow-x-auto my-5">
                         <TrendingCourseList />
                     </div>
 

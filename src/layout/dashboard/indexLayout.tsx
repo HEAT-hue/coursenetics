@@ -14,7 +14,7 @@ function DashboardLayout() {
     return (
         <>
             <div>
-                <div className="md:hidden fixed top-[0.7rem] right-[20px] rounded-sm mt-5 px-2 py-[10px] font-bold shadow z-20 cursor-pointer " onClick={handleToggleNav}>
+                <div className="md:hidden bg-[#ffffff93] fixed top-[-0.3rem] right-[20px] rounded-sm mt-5 px-2 py-[10px] font-bold shadow z-20 cursor-pointer " onClick={handleToggleNav}>
                     {navOpen ? (
                         <AiOutlineClose />
                     ) : (
@@ -28,7 +28,7 @@ function DashboardLayout() {
                 </div>
 
                 {/* Outlet View */}
-                <div className={`fixed inset-y-[2rem] left-0 md:left-[200px] right-0 overflow-y-auto`}>
+                <div className={`fixed inset-y-[1rem] md:inset-y-[2rem] left-0 md:left-[200px] right-0 overflow-y-auto px-[1rem] md:px-[1.5rem]`}>
                     <Outlet />
                 </div>
             </div>
