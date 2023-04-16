@@ -7,7 +7,7 @@ import { HomeSVG, PersonSVG, CourseSVG, GearFillSVG, PatchCheckSVG, StarFillSVG 
 function AsideNavigation() {
     return (
         <>
-            <div className="w-full h-full bg-white py-[2rem]">
+            <div className="w-full h-full bg-white py-[1rem] md:py-[2rem]">
                 <div className="relative w-full h-full border-r-2 border-r-lgBg pt-[80px] overflow-y-auto flex flex-col">
                     <div className="absolute top-[-2vh]"><Logo /></div>
 

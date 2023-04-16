@@ -2,7 +2,6 @@
 import { TrendingCourseItem } from "./trendingcourseitem";
 import { courseDataList } from "../../../data/dashboard";
 
-
 function TrendingCourseList() {
     return (
         <>

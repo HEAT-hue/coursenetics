@@ -11,8 +11,8 @@ function HomeView() {
                         <h1 className="text-xl capitalize">Hello, Alli</h1>
                         <p className="font-mono text-sm text-[grey]">Welcome back to coursnetics</p>
                     </div>
-                    <div className="flex gap-x-[1.2rem] h-[35px] mr-[2.8rem] md:mr-0">
-                        <div className="hidden md:block"><SearchBar /></div>
+                    <div className="hidden md:flex gap-x-[1.2rem] h-[35px] mr-[2.8rem] md:mr-0">
+                        <div><SearchBar /></div>
                         <BellNotification />
                     </div>
                 </div>

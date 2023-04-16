@@ -3,6 +3,7 @@ import { courseDataType } from "../../../data/dashboard"
 import { truncateStr } from "../../../utils"
 import tableIcon from "../../../assets/dashboard/tabler-icon-books.png";
 import certificateIcon from "../../../assets/dashboard/certificateIcon.png";
+import { TrendingCourseList } from "../../../components/dashboard";
 
 interface CoursePageViewProps {
     courseData: courseDataType
@@ -18,7 +19,7 @@ function CoursePageView({ courseData }: CoursePageViewProps) {
     return (
         <>
             {/* Course Image Preview */}
-            <div className={`relative w-full h-[420px] border-2`} style={style}>
+            <div className={`relative w-full h-[420px] rounded overflow-hidden`} style={style}>
                 <div className="absolute inset-0 p-[2rem] bg-[#00000063] text-white">
                     <div className="w-full h-full flex flex-col justify-center items-start">
                         <div className="max-w-[400px]">
@@ -44,19 +45,19 @@ function CoursePageView({ courseData }: CoursePageViewProps) {
                 <div className="grid grid-cols-1 lg:grid-cols-[3fr,_2fr] gap-4 mb-5">
                     <div>
                         <h2 className="text-xl font-bold">Course Duration</h2>
-                        <div className="p-4 py-3 mt-5 flex justify-between text-pry  bg-[rgba(0,_0,_0,0.315)]">
-                            <span>Week</span>
+                        <div className="p-4 py-3 mt-5 grid grid-cols-[max-content,_1fr] md:grid-cols-3 justify-items-center text-pry  bg-[rgba(0,_0,_0,0.315)]">
+                            <span className="md:justify-self-start">Week</span>
                             <span>Topic</span>
-                            <span>Duration</span>
+                            <span className="hidden md:inline md:justify-self-end">Duration</span>
                         </div>
                         <div className="h-[20px] bg-gray-200"></div>
                         <div className="px-4">
                             {courseData.courseDuration.map((course, index) => {
                                 return (
-                                    <div key={index} className="grid grid-cols-[1fr,_1fr,_1fr] border-b-[1px] border-y-pry text-sm py-3 text-pry gap-x-4">
-                                        <div className="truncate">{`Week ${index}`}</div>
-                                        <div className="truncate justify-self-center text-center mx-auto w-[150px] sm:w-[300px] md:w-full">{course.topic}</div>
-                                        <div className="truncate justify-self-end">{course.duration}</div>
+                                    <div key={index} className="grid grid-cols-[max-content,_1fr] md:grid-cols-3 border-b-[1px] border-y-pry text-sm py-3 text-pry gap-x-4">
+                                        <div className="truncate w-max">{`Week ${index}`}</div>
+                                        <div className="truncate justify-self-center text-center mx-auto w-full sm:w-[300px] md:w-full">{course.topic}</div>
+                                        <div className="hidden md:block truncate justify-self-end">{course.duration}</div>
                                     </div>
                                 )
                             })}
@@ -117,6 +118,15 @@ function CoursePageView({ courseData }: CoursePageViewProps) {
                         </div>
                     </div>
                 </div>
+            </div>
+
+            {/* Section | Trending Courses */}
+            <div>
+                <h2 className="capitalize text-xl font-bold text-pry mt-9" >Other Trending Courses</h2>
+                <div className="overflow-x-auto my-5">
+                    <TrendingCourseList />
+                </div>
+
             </div>
         </>
     );
