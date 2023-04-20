@@ -10,7 +10,7 @@ const schema = z.object({
     email: z.string().email({ message: "Invalid email address" }),
     password: z.string().min(5, { message: "Password must be 5 or more characters long" }),
     confirmPassword: z.string().min(5, { message: "Password must be 5 or more characters long" })
-})
+    })
     .refine((data) => {
         return data.password === data.confirmPassword
     }, { message: "Passwords do not match", path: ["confirmPassword"] });
@@ -28,9 +28,9 @@ function SignUpForm() {
         <>
             <div>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className="max-w-[400px] w-full px-4 mx-auto mt-[5rem] flex flex-col items-center">
+                    <div className="max-w-[400px] w-full mx-auto flex flex-col items-center">
                         <h1 className="text-pry font-bold text-3xl">Create Account</h1>
-                        <div className="flex justify-center gap-x-5 mt-3">
+                        <div className="flex justify-center gap-x-5 mt-4">
                             <div className="p-2 shadow border-[1px] rounded-full text-pry cursor-pointer hover:shadow-md"><FacebookSVG size={16} /></div>
                             <div className="p-2 shadow border-[1px] rounded-full text-pry cursor-pointer hover:shadow-md"><GoogleSVG size={16} /></div>
                             <div className="p-2 shadow border-[1px] rounded-full text-pry cursor-pointer hover:shadow-md"><LinkedInSVG size={16} /></div>

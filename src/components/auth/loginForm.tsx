@@ -25,7 +25,7 @@ function LoginForm() {
         <>
             <div>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className="max-w-[400px] w-full px-4 mx-auto mt-[5rem] flex flex-col items-center">
+                    <div className="max-w-[400px] w-full mx-auto flex flex-col items-center">
                         <h1 className="text-pry font-bold text-3xl">Login</h1>
                         <div className="flex justify-center gap-x-5 mt-3">
                             <div className="p-2 shadow border-[1px] rounded-full text-pry cursor-pointer hover:shadow-md"><FacebookSVG size={16} /></div>

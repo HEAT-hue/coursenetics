@@ -19,7 +19,9 @@ function SignUpView() {
                     <div className="md:hidden absolute top-[-4rem] left-[-2.8rem] rounded-full bg-gray-200 box-content pt-[2.8rem] pl-[2.5rem] pr-4 pb-3 border-[15px] border-[white]">
                         <Logo />
                     </div>
-                    <SignUpForm />
+                    <div className="mt-[6rem] px-5">
+                        <SignUpForm />
+                    </div>
                 </div>
             </div>
         </>

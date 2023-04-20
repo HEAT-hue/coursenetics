@@ -1,8 +1,8 @@
 // jshint esversion:6
-import { LoginForm } from "../../components/auth";
 import { Logo } from "../../components/auth";
+import { UserRegForm } from "../../components/auth";
 
-function LoginView() {
+function UserRegistrationView() {
     return (
         <>
             <div className="h-full w-full grid grid-cols-1 md:grid-cols-[1fr,_2fr]">
@@ -20,8 +20,8 @@ function LoginView() {
                     <div className="md:hidden absolute top-[-4rem] left-[-2.8rem] rounded-full bg-gray-200 box-content pt-[2.8rem] pl-[2.5rem] pr-4 pb-3 border-[15px] border-[white]">
                         <Logo />
                     </div>
-                    <div className="mt-[6rem] px-5">
-                        <LoginForm />
+                    <div className="mt-[6rem] px-5 pb-[2rem]">
+                        <UserRegForm />
                     </div>
                 </div>
             </div>
@@ -29,4 +29,4 @@ function LoginView() {
     );
 }
 
-export { LoginView };
+export { UserRegistrationView }
