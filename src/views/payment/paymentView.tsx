@@ -1,7 +1,5 @@
 // jshint esversion:6
-import { useForm } from "react-hook-form"
-import { zodResolver } from '@hookform/resolvers/zod';
-import { SyntheticEvent, useRef, useState } from "react";
+import { SyntheticEvent, useState } from "react";
 import masterCard from "../../assets/dashboard/logo_mastercard.png"
 import visaCard from "../../assets/dashboard/logo_visa.png";
 import { useAppDispatch } from "../../hooks/dashboard";
