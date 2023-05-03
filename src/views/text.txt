@@ -1,2 +1,0 @@
-This directory will contain the UI views for each page.
-Page logic should be done in the parent page and not the view component

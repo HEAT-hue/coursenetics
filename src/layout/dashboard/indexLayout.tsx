@@ -39,7 +39,7 @@ function DashboardLayout() {
                 </div>
 
                 {/* Outlet View */}
-                <div className={`fixed top-[4rem] bottom-[1rem] md:inset-y-[2rem] left-0 md:left-[200px] right-0 overflow-y-auto px-[1rem] md:px-[1.5rem]`} onClick={() => setNavOpen(false)}>
+                <div className={`fixed top-[4rem] bottom-[1rem] md:inset-y-[2rem] left-0 md:left-[200px] right-0 overflow-y-auto px-[1.2rem] md:px-[1.5rem]`} onClick={() => setNavOpen(false)}>
                     <Outlet />
                 </div>
             </div>

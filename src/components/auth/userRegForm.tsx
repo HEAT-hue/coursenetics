@@ -1,6 +1,4 @@
 // jshint esversion:6
-import { FacebookSVG, GoogleSVG, LinkedInSVG, EmailSVG, ArrowClockwiseSVG, KeySVG } from "../../assets/svg";
-import { NavLink } from "react-router-dom";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -40,14 +38,12 @@ function UserRegForm() {
                                 <div>
                                     <p className="text-sm text-red-700 font-mono">{errors?.firstname?.message}</p>
                                     <div className="flex h-[3rem] w-full relative">
-                                        {/* <div className=" absolute left-[5px] h-full max-w-content flex items-center px-[5px] text-pry"><EmailSVG size={20} /></div> */}
                                         <FormInput type="text" placeholder="First Name" {...register("firstname")} error={errors?.firstname?.message} />
                                     </div>
                                 </div>
                                 <div>
                                     <p className="text-sm text-red-700 font-mono">{errors?.lastname?.message}</p>
                                     <div className="flex h-[3rem] w-full relative">
-                                        {/* <div className=" absolute left-[5px] h-full max-w-content flex items-center px-[5px] text-pry"><EmailSVG size={20} /></div> */}
                                         <FormInput type="text" placeholder="Last name" {...register("lastname")} error={errors?.lastname?.message} />
                                     </div>
                                 </div>
@@ -55,14 +51,12 @@ function UserRegForm() {
                             <div>
                                 <p className="text-sm text-red-700 font-mono">{errors?.username?.message}</p>
                                 <div className="flex h-[3rem] w-full relative">
-                                    {/* <div className=" absolute left-[5px] h-full max-w-content flex items-center px-[5px] text-pry"><EmailSVG size={20} /></div> */}
                                     <FormInput type="text" placeholder="Username" {...register("username")} error={errors?.username?.message} />
                                 </div>
                             </div>
                             <div>
                                 <p className="text-sm text-red-700 font-mono">{errors?.tel?.message}</p>
                                 <div className="flex h-[3rem] w-full relative">
-                                    {/* <div className=" absolute left-[5px] h-full max-w-content flex items-center px-[5px] text-pry"><EmailSVG size={20} /></div> */}
                                     <FormInput type="tel" placeholder="Phone number" {...register("tel")} error={errors?.tel?.message} />
                                 </div>
                             </div>
@@ -70,14 +64,12 @@ function UserRegForm() {
                                 <div>
                                     <p className="text-sm text-red-700 font-mono">{errors?.gender?.message}</p>
                                     <div className="flex h-[3rem] w-full relative">
-                                        {/* <div className="absolute left-[5px] h-full max-w-content flex items-center px-[5px] text-pry"><EmailSVG size={20} /></div> */}
                                         <FormSelect {...register("gender")} defaultOption="Gender" selectOptions={[{ label: "Male", value: "male" }, { label: "Female", value: "female" }]} />
                                     </div>
                                 </div>
                                 <div>
                                     <p className="text-sm text-red-700 font-mono">{errors?.education?.message}</p>
                                     <div className="flex h-[3rem] w-full relative">
-                                        {/* <div className="absolute left-[5px] h-full max-w-content flex items-center p8x-[5px] text-pry"><EmailSVG size={20} /></div> */}
                                         <FormSelect {...register("education")} defaultOption="Education" selectOptions={[{ label: "Primary", value: "primary" }, { label: "Secondary", value: "secondary" }, { label: "College", value: "College" }, { label: "Self", value: "self" }]} />
                                     </div>
                                 </div>

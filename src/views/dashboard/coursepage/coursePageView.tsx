@@ -4,12 +4,20 @@ import { truncateStr } from "../../../utils"
 import tableIcon from "../../../assets/dashboard/tabler-icon-books.png";
 import certificateIcon from "../../../assets/dashboard/certificateIcon.png";
 import { TrendingCourseList } from "../../../components/dashboard";
+import { useNavigate } from "react-router-dom";
 
 interface CoursePageViewProps {
     courseData: courseDataType
 }
 
 function CoursePageView({ courseData }: CoursePageViewProps) {
+
+    // Get page navigator
+    const navigate = useNavigate();
+
+    function handleEnrollClick() {
+        navigate(`/dashboard/payment/${courseData.id}`);
+    }
 
     // Set thee background image
     const style = {
@@ -34,7 +42,7 @@ function CoursePageView({ courseData }: CoursePageViewProps) {
                         </div>
                         <div className="w-full xl:w-[80%] flex justify-between items-center mt-[2.5rem]">
                             <div className="text-2xl font-bold">${courseData.price}</div>
-                            <button className="py-2 px-4 border-2 border-[white] cursor-pointer">Enroll Now</button>
+                            <button className="py-2 px-4 border-2 border-[white] cursor-pointer font-bold hover:bg-white hover:text-black" onClick={handleEnrollClick}>Enroll Now</button>
                         </div>
                     </div>
                 </div>
