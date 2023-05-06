@@ -23,7 +23,7 @@ const initialState: PaymentModalType = {
 // Create the slice
 const paymentModalSlice = createSlice({
     name: "paymentModal",
-    initialState,
+    initialState: initialState,
     reducers: {
         togglePaymentModal: (state, action: PayloadAction<ActionPayload>) => {
             const { payload } = action

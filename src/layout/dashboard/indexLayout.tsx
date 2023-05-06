@@ -20,7 +20,7 @@ function DashboardLayout() {
             <div>
                 {/* Mobile Navigation  */}
                 <div className="md:hidden fixed top-0 inset-x-0 px-[1rem] py-[1rem] flex justify-between items-center">
-                    <h1 className="text-2xl text-pry font-bold cursor-pointer" onClick={() => navigate("/dashboard")}>Coursentics</h1>
+                    <h1 className="text-2xl text-pry font-bold cursor-pointer" onClick={() => navigate("/dashboard")}>Coursenetics</h1>
                     <div className="flex gap-x-2 h-[35px]">
                         <div><BellNotification /></div>
                         <div className="bg-[#ffffff93] px-2 py-[10px] font-bold shadow cursor-pointer rounded-sm" onClick={handleToggleNav}>

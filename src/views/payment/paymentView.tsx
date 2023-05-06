@@ -4,10 +4,22 @@ import masterCard from "../../assets/dashboard/logo_mastercard.png"
 import visaCard from "../../assets/dashboard/logo_visa.png";
 import { useAppDispatch } from "../../hooks/dashboard";
 import { paymentSliceActions } from "../../features/modalviews";
+import { extractNumbersFromString } from "../../utils";
 
 interface PaymentViewProps {
     courseName: string
     coursePrice: number
+}
+
+interface CardExpiryDateType {
+    month: string
+    year: string
+}
+
+interface ErrorStateType {
+    cardNumberError: boolean,
+    cvvError: boolean,
+    cardExpiryError: boolean
 }
 
 // const selectedCard default 
@@ -21,36 +33,20 @@ const cardNumberLength = 16;
 // DEBIT CARD CVV Number length
 const cvvNumberLength = 3;
 
-interface CardExpiryDateType {
-    month: string
-    year: string
-}
-
-interface ErrorStateType {
-    cardNumberError: boolean,
-    cvvError: boolean,
-    cardExpiryError: boolean
-}
 
 function PaymentView({ courseName, coursePrice }: PaymentViewProps) {
 
     // Get store dispatch
     const dispatch = useAppDispatch()
 
-    // Current error state
+    // Error state
     const [errors, setErrors] = useState({ cardNumberError: false, cvvError: false, cardExpiryError: false })
 
     // State to keep track of card type selected
     const [selectedCard, setSelectedCard] = useState({ masterCard: true, visa: false });
 
-    // State of the card number
+    // Card number State
     const [cardNumber, setCardNumber] = useState<string>("");
-
-    // State of fake card input element for viewing purposes which contains the card number with some modifications
-    const [cardViewNumber, setCardViewNumber] = useState<string>("")
-
-    // State to keep track of card number input focus state
-    const [cardViewNumberEdit, setCardViewNumberEdit] = useState<boolean>(false);
 
     // CVV number state
     const [cvvNumber, setCvvNumber] = useState<string>("");
@@ -94,29 +90,13 @@ function PaymentView({ courseName, coursePrice }: PaymentViewProps) {
     }
 
     /**
-    * @description: Onchange to update state: cardNumber
-    */
-    function handleSetCardNumber(value: string) {
-        // Prevent more entries if limit reached
-        if (value.length <= cardNumberLength) {
-            setCardNumber(value);
-
-            // Limit reached, clear any cvv length error present
-            if (value.length == cardNumberLength) {
-                setErrors({ ...errors, cardNumberError: false });
-            }
-        }
-    }
-
-    /**
     * @description: To set an error if card number isn't complete
     */
     function handleCardNumberInputBlur() {
-        // Remove focus
-        setCardViewNumberEdit(false);
-
         // Set the error if number is incomplete
-        if (cardNumber.length != cardNumberLength) {
+        const extractedCardNumbers = extractNumbersFromString(cardNumber);
+
+        if (extractedCardNumbers.length != cardNumberLength) {
             setErrors({ ...errors, cardNumberError: true });
         }
     }
@@ -126,28 +106,33 @@ function PaymentView({ courseName, coursePrice }: PaymentViewProps) {
      * @param value: The value gotten from the real invisible input element
      */
     function handleCardNumberInputChange(value: string) {
-
-        // Set the focus status of fake input element
-        setCardViewNumberEdit(true);
+        // Extract the numbers from dom input values: 
+        // dom input value e.g 2928-3111-6178
+        let cardNumber = extractNumbersFromString(value);    // returns e.g "292831116178"
 
         // Max input length reached, return
-        if (value.length >= cardNumberLength + 1) return;
+        if (cardNumber.length > cardNumberLength) return;
 
-        // Build display value with whatever string you get from real invisible input element
-
-        // Output value
+        // Output value to display to the user with modifications added
         let outputString = "";
 
-        // Concatenate each values with the output value
-        for (let i = 0, j = 1; i < value.length; ++i, ++j) {
-            outputString += value.charAt(i);
+        // Add each input value to the output string
+        for (let i = 0, j = 0; i < cardNumber.length; ++i, ++j) {
 
-            // After each 4th value add the space
-            if (j % 4 == 0 && i < cardNumberLength - 1) outputString += " - ";
+            // Don't add modification at the start and end of the card number but after each 4th value
+            if (j != 0 && i < cardNumberLength - 1 && j % 4 == 0) outputString += " - ";
+
+            outputString += cardNumber.charAt(i);
         }
 
-        // Set the state of the fake input element
-        setCardViewNumber(outputString);
+        // Set the state of the input element  i.e. display the modified output string
+        // Output string e.g 4449-4694-3156
+        setCardNumber(outputString);
+
+        // Clear any length error if limit reached
+        if (extractNumbersFromString(cardNumber).length == cardNumberLength) {
+            setErrors({ ...errors, cardNumberError: false });
+        }
 
     }
 
@@ -211,13 +196,11 @@ function PaymentView({ courseName, coursePrice }: PaymentViewProps) {
                     <div className="flex flex-col gap-y-2">
                         <div className="flex flex-col gap-y-[0.1rem]">
                             <h5 className="font-bold">Card Number</h5>
-                            <p className={`font-mono text-xs ${errors.cardNumberError ? "text-red-500" : "text-gray-500"}`}>Enter 16 digits number on the card</p>
+                            <p className={`font-mono text-xs ${errors.cardNumberError ? "text-red-700" : "text-gray-500"}`}>Enter 16 digits number on the card</p>
                         </div>
-                        <div className="relative w-full max-w-[400px] h-[48px]">
-                            <div className={`absolute inset-0 w-full h-full flex flex-col justify-center items-center  border-[2px] ${cardViewNumberEdit ? "border-pry" : "border-gray-300"}`} > {cardViewNumber.length == 0 ? <span className="text-gray-600">XXXX - XXXX - XXXX - XXXX</span> : cardViewNumber}</div>
-                            <input className="absolute inset-0 opacity-0 w-full max-w-[400px] border-[1px] border-pry py-[0.7rem] text-center rounded-sm outline-none" required type="tel" value={cardNumber} onFocus={() => setCardViewNumberEdit(true)} onBlur={handleCardNumberInputBlur} onChange={(e) => {
+                        <div className="w-full max-w-[400px]">
+                            <input className="w-full max-w-[400px] border-[2px] border-gray-300 focus:border-pry py-[0.7rem] text-center rounded-sm outline-none" placeholder="XXXX - XXXX - XXXX - XXXX" required type="tel" value={cardNumber} onBlur={handleCardNumberInputBlur} onChange={(e) => {
                                 handleCardNumberInputChange(e.target.value)
-                                handleSetCardNumber(e.target.value)
                             }} />
                         </div>
                     </div>
@@ -230,7 +213,7 @@ function PaymentView({ courseName, coursePrice }: PaymentViewProps) {
                     <div className="flex flex-col gap-y-2">
                         <div className="flex flex-col gap-y-[0.1rem]">
                             <h5 className="font-bold">CVV</h5>
-                            <p className={`font-mono text-xs ${errors.cvvError ? "text-red-500" : "text-gray-500"}`}>Enter the 3 digit number at the back of the card</p>
+                            <p className={`font-mono text-xs ${errors.cvvError ? "text-red-700" : "text-gray-500"}`}>Enter the 3 digit number at the back of the card</p>
                         </div>
                         <input className="w-full max-w-[200px] border-[2px] border-gray-300 focus:border-pry py-[0.7rem] text-center rounded-sm outline-none" type="password" placeholder="***" onBlur={handleCvvNumberInputBlur} value={cvvNumber} onChange={(e) => handleCvvNumberInputChange(e.target.value)} required />
                     </div>
