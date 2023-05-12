@@ -77,7 +77,7 @@ export function EditForm() {
     return (
         <div className="max-w-[600px] w-[90%] mx-auto">
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="w-[80px] h-[80px] overflow-hidden rounded-full mb-5 mx-auto">
+                <div className="w-[80px] h-[80px] overflow-hidden rounded-full mt-3 mb-5 mx-auto">
                     <img src={userImage} alt="image of user" />
                 </div>
 
