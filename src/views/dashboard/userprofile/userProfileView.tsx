@@ -9,7 +9,7 @@ import { EditForm } from "../../../components/auth";
 
 function UserProfileView() {
     return (
-        <div className="w-full h-full pt-1">
+        <div className="w-full h-full pt-1 pb-5">
             <Header />
 
             <div className="mt-5">
