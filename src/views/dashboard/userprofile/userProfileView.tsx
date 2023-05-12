@@ -12,7 +12,7 @@ function UserProfileView() {
         <div className="w-full h-full pt-1 pb-5">
             <Header />
 
-            <div className="mt-5">
+            <div className="my-5 mb-[3rem]">
                 <EditForm />
             </div>
         </div>
