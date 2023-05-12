@@ -1,12 +1,12 @@
 // jshint esversion:6
-import { SearchBar, BellNotification, CourseList, TrendingCourseList } from "../../../components/dashboard";
+import { CourseList, TrendingCourseList, Header } from "../../../components/dashboard";
 
 function HomeView() {
     return (
         <>
             <div className="flex flex-col gap-y-[1.3rem] ">
                 {/* Header | User info */}
-                <div className="flex justify-between items-start">
+                {/* <div className="flex justify-between items-start">
                     <div className="flex flex-col gap-y-1 items-start">
                         <h1 className="text-xl capitalize">Hello, Alli</h1>
                         <p className="font-mono text-sm text-[grey]">Welcome back to coursnetics</p>
@@ -15,7 +15,8 @@ function HomeView() {
                         <div><SearchBar /></div>
                         <BellNotification />
                     </div>
-                </div>
+                </div> */}
+                <Header />
 
                 {/* Section | My Courses */}
                 <div>

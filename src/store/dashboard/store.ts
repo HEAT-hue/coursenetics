@@ -1,9 +1,11 @@
 // jshint esversion:6
 import { configureStore } from "@reduxjs/toolkit";
 import { paymentModalReducer } from "../../features/modalviews";
+import { userReducer } from "../../features/dashboard";
 
 export const store = configureStore({
     reducer: {
+        user: userReducer,
         paymentModal: paymentModalReducer
     }
 })

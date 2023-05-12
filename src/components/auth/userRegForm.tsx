@@ -2,7 +2,7 @@
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { FormInput, FormSelect } from "./form";
+import { FormInput, FormSelect } from "./userregForm";
 
 // Create User Schema for form data validation
 const schema = z
@@ -34,45 +34,19 @@ function UserRegForm() {
 
                         {/* Form fields */}
                         <div className="mt-[2rem] flex flex-col w-full gap-y-5">
+
                             <div className="grid grid-cols-[repeat(auto-fill,_minmax(200px,_1fr))] gap-x-2 gap-y-5">
-                                <div>
-                                    <p className="text-sm text-red-700 font-mono">{errors?.firstname?.message}</p>
-                                    <div className="flex h-[3rem] w-full relative">
-                                        <FormInput type="text" placeholder="First Name" {...register("firstname")} error={errors?.firstname?.message} />
-                                    </div>
-                                </div>
-                                <div>
-                                    <p className="text-sm text-red-700 font-mono">{errors?.lastname?.message}</p>
-                                    <div className="flex h-[3rem] w-full relative">
-                                        <FormInput type="text" placeholder="Last name" {...register("lastname")} error={errors?.lastname?.message} />
-                                    </div>
-                                </div>
+                                <FormInput type="text" placeholder="First Name" {...register("firstname")} error={errors?.firstname?.message} />
+                                <FormInput type="text" placeholder="Last Name" {...register("lastname")} error={errors?.lastname?.message} />
                             </div>
-                            <div>
-                                <p className="text-sm text-red-700 font-mono">{errors?.username?.message}</p>
-                                <div className="flex h-[3rem] w-full relative">
-                                    <FormInput type="text" placeholder="Username" {...register("username")} error={errors?.username?.message} />
-                                </div>
-                            </div>
-                            <div>
-                                <p className="text-sm text-red-700 font-mono">{errors?.tel?.message}</p>
-                                <div className="flex h-[3rem] w-full relative">
-                                    <FormInput type="tel" placeholder="Phone number" {...register("tel")} error={errors?.tel?.message} />
-                                </div>
-                            </div>
+
+                            <FormInput type="text" placeholder="Last Name" {...register("username")} error={errors?.username?.message} />
+
+                            <FormInput type="text" placeholder="Last Name" {...register("tel")} error={errors?.tel?.message} />
+
                             <div className="grid grid-cols-[repeat(auto-fill,_minmax(200px,_1fr))] gap-x-2 gap-y-5">
-                                <div>
-                                    <p className="text-sm text-red-700 font-mono">{errors?.gender?.message}</p>
-                                    <div className="flex h-[3rem] w-full relative">
-                                        <FormSelect {...register("gender")} defaultOption="Gender" selectOptions={[{ label: "Male", value: "male" }, { label: "Female", value: "female" }]} />
-                                    </div>
-                                </div>
-                                <div>
-                                    <p className="text-sm text-red-700 font-mono">{errors?.education?.message}</p>
-                                    <div className="flex h-[3rem] w-full relative">
-                                        <FormSelect {...register("education")} defaultOption="Education" selectOptions={[{ label: "Primary", value: "primary" }, { label: "Secondary", value: "secondary" }, { label: "College", value: "College" }, { label: "Self", value: "self" }]} />
-                                    </div>
-                                </div>
+                                <FormSelect {...register("gender")} error={errors?.gender?.message} defaultOption="Gender" selectOptions={[{ label: "Male", value: "male" }, { label: "Female", value: "female" }]} />
+                                <FormSelect {...register("education")} error={errors?.education?.message} defaultOption="Education" selectOptions={[{ label: "Primary", value: "primary" }, { label: "Secondary", value: "secondary" }, { label: "College", value: "College" }, { label: "Self", value: "self" }]} />
                             </div>
                         </div>
 

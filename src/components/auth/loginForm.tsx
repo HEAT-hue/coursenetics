@@ -1,9 +1,10 @@
 // jshint esversion:6
-import { FacebookSVG, GoogleSVG, LinkedInSVG, EmailSVG, ArrowClockwiseSVG, KeySVG } from "../../assets/svg";
+import { FacebookSVG, GoogleSVG, LinkedInSVG, EmailSVG, KeySVG } from "../../assets/svg";
 import { NavLink } from "react-router-dom";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { FormInput } from "./authForm";
 
 // Create user Schema for form data
 const schema = z.object({
@@ -35,27 +36,21 @@ function LoginForm() {
 
                         {/* Form fields */}
                         <div className="mt-[4rem] flex flex-col w-full gap-y-5">
-                            <div>
-                                <p className="text-sm text-red-700 font-mono">{errors?.email?.message}</p>
-                                <div className="flex h-[3rem] w-full relative">
-                                    <div className=" absolute left-[5px] h-full max-w-content flex items-center px-[5px] text-pry"><EmailSVG size={20} /></div>
-                                    <input className={`rounded w-full h-full pl-[3rem] pr-2 text-[black] bg-gray-200 border-2 text-[1rem] outline-none ${!errors?.email ? "focus:border-pry" : "border-red-700" }`} type="email" placeholder="Email" {...register("email")} />
-                                </div>
-                            </div>
-                            <div>
-                                <p className="text-sm text-red-700 font-mono">{errors?.password?.message}</p>
-                                <div className="flex h-[3rem] w-full relative">
-                                    <div className=" absolute left-[5px] h-full max-w-content flex items-center px-[5px] text-pry"><KeySVG size={20} /></div>
-                                    <input className={`rounded w-full h-full pl-[3rem] pr-2 text-[black] bg-gray-200 border-2 text-[1rem] outline-none ${!errors?.password ? "focus:border-pry" : "border-red-700"}`} type="password" placeholder="Password" {...register("password")} />
-                                </div>
-                            </div>
+
+                            <FormInput type="text" placeholder="Email" {...register("email")} error={errors?.email?.message} icon={<EmailSVG size={20} />} />
+
+                            <FormInput type="password" placeholder="Password" {...register("password")} error={errors?.password?.message} icon={<KeySVG size={20} />} />
+
                         </div>
                         <div className="w-full flex justify-between">
+
                             <NavLink to={"/auth/signup"}>
                                 <div className="text-gray-600 text-sm font-mono mt-2">Sign Up</div>
                             </NavLink>
 
-                            <div className="text-red-600 text-sm font-mono mt-2">forgot password</div>
+                            <NavLink to={"/auth/reset"}>
+                                <div className="text-red-600 text-sm font-mono mt-2">forgot password</div>
+                            </NavLink>
                         </div>
                         {/* path to login page*/}
 

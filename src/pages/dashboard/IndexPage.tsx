@@ -11,7 +11,7 @@ function DashboardIndexPage() {
                 <Route path="cert" element={<CertificatePage />} />
                 <Route path="courses" element={<CourseListPage />} />
                 <Route path="course/:courseId" element={<CoursePage />} />
-                <Route path="user" element={<UserProfilePage />} />
+                <Route path="userprofile" element={<UserProfilePage />} />
                 <Route path="payment/:courseId" element={<PaymentPage />} />
             </Route>
         </Routes>

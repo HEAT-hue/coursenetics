@@ -4,13 +4,14 @@ import { NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from '@hookform/resolvers/zod';
+import { FormInput } from "./authForm";
 
 // Create object schema for form values
 const schema = z.object({
     email: z.string().email({ message: "Invalid email address" }),
     password: z.string().min(5, { message: "Password must be 5 or more characters long" }),
     confirmPassword: z.string().min(5, { message: "Password must be 5 or more characters long" })
-    })
+})
     .refine((data) => {
         return data.password === data.confirmPassword
     }, { message: "Passwords do not match", path: ["confirmPassword"] });
@@ -38,27 +39,13 @@ function SignUpForm() {
 
                         {/* Form fields */}
                         <div className="mt-[4rem] flex flex-col w-full gap-y-5">
-                            <div>
-                                <p className="text-sm text-red-700 font-mono">{errors?.email?.message}</p>
-                                <div className="flex h-[3rem] w-full relative">
-                                    <div className=" absolute left-[5px] h-full max-w-content flex items-center px-[5px] text-pry"><EmailSVG size={20} /></div>
-                                    <input className={`rounded w-full h-full pl-[3rem] pr-2 text-[black] bg-gray-200 border-2 text-[1rem] outline-none ${!errors?.email ? "focus:border-pry" : "border-red-700"}`} type="email" placeholder="Email" {...register("email")} />
-                                </div>
-                            </div>
-                            <div>
-                                <p className="text-sm text-red-700 font-mono">{errors?.password?.message}</p>
-                                <div className="flex h-[3rem] w-full relative">
-                                    <div className=" absolute left-[5px] h-full max-w-content flex items-center px-[5px] text-pry"><KeySVG size={20} /></div>
-                                    <input className={`rounded w-full h-full pl-[3rem] pr-2 text-[black] bg-gray-200 border-2 text-[1rem] outline-none ${!errors?.password ? "focus:border-pry" : "border-red-700"}`} type="password" placeholder="Password" {...register("password")} />
-                                </div>
-                            </div>
-                            <div>
-                                <p className="text-sm text-red-700 font-mono">{errors.confirmPassword?.message}</p>
-                                <div className="flex h-[3rem] w-full relative">
-                                    <div className=" absolute left-[5px] h-full max-w-content flex items-center px-[5px] text-pry"><ArrowClockwiseSVG size={20} /></div>
-                                    <input className={`rounded w-full h-full pl-[3rem] pr-2 text-[black] bg-gray-200 border-2 text-[1rem] outline-none ${!errors?.confirmPassword ? "focus:border-pry" : "border-red-700"}`} type="password" placeholder="Confirm Password" {...register("confirmPassword")} />
-                                </div>
-                            </div>
+
+                            <FormInput type="text" placeholder="Email" {...register("email")} error={errors?.email?.message} icon={<EmailSVG size={20} />} />
+
+                            <FormInput type="password" placeholder="Password" {...register("password")} error={errors?.password?.message} icon={<KeySVG size={20} />} />
+
+                            <FormInput type="password" placeholder="Confirm password" {...register("confirmPassword")} error={errors?.confirmPassword?.message} icon={<ArrowClockwiseSVG size={20} />} />
+                            
                         </div>
 
                         {/* path to login page*/}

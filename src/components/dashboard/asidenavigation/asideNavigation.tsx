@@ -3,8 +3,12 @@ import { Logo } from "../../auth";
 import Avatar from "../../../assets/dashboard/avatar.jpg"
 import { NavLink } from "react-router-dom";
 import { HomeSVG, PersonSVG, CourseSVG, GearFillSVG, PatchCheckSVG, StarFillSVG } from "../svg";
+import { useAppSelector } from "../../../hooks/dashboard";
 
 function AsideNavigation() {
+
+    const { firstName, lastName, email } = useAppSelector((state) => state.user);
+
     return (
         <>
             <div className="w-full h-full bg-white py-[1rem] md:py-[2rem]">
@@ -18,8 +22,8 @@ function AsideNavigation() {
                             <div className="w-[80px] h-[80px] overflow-hidden rounded-full">
                                 <img src={Avatar} alt="image of user" />
                             </div>
-                            <div className="text-md text-pry">Alli James</div>
-                            <div className="text-xs text-gray-500">allijames@gmail.com</div>
+                            <div className="text-md text-pry">{firstName} {lastName}</div>
+                            <div className="text-xs text-gray-500">{email}</div>
                         </div>
 
                         {/* Navigation menu */}
